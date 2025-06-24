@@ -23,7 +23,7 @@ const commissionSlice = createSlice({
 export const postCommissionProof = (data) =>async(dispatch)=>{
   dispatch(commissionSlice.actions.postCommissionProofRequest());
   try{
-    const response = await axios.post("https://auction-application-phi.vercel.app/api/v1/commission/proof", data,
+    const response = await axios.post("https://backend-u2e1.onrender.com/api/v1/commission/proof", data,
       {
         withCredentials:true,
         headers: {"Content-Type" : "multipart/form-data"}
