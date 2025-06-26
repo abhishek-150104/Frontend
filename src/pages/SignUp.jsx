@@ -169,21 +169,36 @@ const SignUp = () => {
                 </label>
                 <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
                   <select
-                    value={bankName}
-                    onChange={(e) => setBankName(e.target.value)}
-                    className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
-                    disabled={role === "Bidder"}
+                  value={bankName}
+                  onChange={(e) => setBankName(e.target.value)}
+                  className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
+                  disabled={role === "Bidder"}
                   >
                     <option value="">Select Your Bank</option>
-                    <option value="Meezan Bank">Meezan Bank</option>
-                    <option value="UBL">UBL</option>
-                    <option value="HBL">HBL</option>
-                    <option value="Allied Bank">Allied Bank</option>
+                    <option value="State Bank of India">State Bank of India (SBI)</option>
+                    <option value="HDFC Bank">HDFC Bank</option>
+                    <option value="ICICI Bank">ICICI Bank</option>
+                    <option value="Axis Bank">Axis Bank</option>
+                    <option value="Punjab National Bank">Punjab National Bank (PNB)</option>
+                    <option value="Kotak Mahindra Bank">Kotak Mahindra Bank</option>
+                    <option value="Other">Other</option>
                   </select>
+
+                  {bankName === "Other" && (
+                    <input
+                      type="text"
+                      placeholder="Enter your bank name"
+                      value={bankName === "Other" ? "" : bankName}
+                      onChange={(e) => setBankName(e.target.value)}
+                      className="text-[16px] py-2 mt-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
+                      disabled={role === "Bidder"}
+                    />
+                  )}
+
                   <input
                     type="text"
                     value={bankAccountNumber}
-                    placeholder="IBAN / IFSC"
+                    placeholder="Bank Account Number"
                     onChange={(e) => setBankAccountNumber(e.target.value)}
                     className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
                     disabled={role === "Bidder"}
@@ -200,13 +215,13 @@ const SignUp = () => {
               </div>
               <div>
                 <label className="text-[16px] text-stone-600 font-semibold">
-                  Easypaisa And Paypal Details
+                  RazorPay And Paypal Details
                 </label>
                 <div className="flex flex-col gap-1 sm:flex-row sm:gap-4">
                   <input
                     type="number"
                     value={razorNumber}
-                    placeholder="Easypaisa Account Number"
+                    placeholder="Razor Pay Number"
                     onChange={(e) => setrazorNumber(e.target.value)}
                     className="text-[16px] py-2 bg-transparent border-b-[1px] border-b-stone-500 focus:outline-none sm:flex-1"
                     disabled={role === "Bidder"}
